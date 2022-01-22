@@ -1,22 +1,18 @@
 from django.db import models
 
 class Paises(models.Model):
-    pass
+    nombre = models.CharField(max_length=100)
     def __str__(self):
-        pass
-class Estados(models.Model):
-    pass
+        f"{self.nombre}"
+class Entidades(models.Model):
+    nombre = models.CharField(max_length=100)
+    pais = models.Foreignkey(Paises,on_delete=models.CASCADE)
     def __str__(self):
-        pass
+        f"{self.nombre}"
 class Municipios(models.Model):
-    pass
+    nombre = models.CharField(max_length=100)
+    entidad = models.Foreignkey(Entidades,on_delete=models.CASCADE)
     def __str__(self):
-        pass
-class Paqueterias(models.Model):
-    pass
-    def __str__(self):
-        pass
-class Direcciones(models.Model):
-    pass
-    def __str__(self):
-        pass
+        f"{self.nombre}"
+
+
