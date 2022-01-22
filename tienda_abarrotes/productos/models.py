@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class Productos(models.Model):
     nombre = models.Charfield(max_length=50)
@@ -21,22 +20,25 @@ class Descuentos(models.Model):
     def __str__(self):
         f"{self.producto.nombre} x {self.cantidad}"
 class Mermas(models.Model):
-    pass
+    fecha = models.DateField()
+    cantidad = models.IntegerField()
+    producto = models.ForeignKey(Productos,on_delete=models.CASCADE)
     def __str__(self):
-        pass
+        f"{self.producto.nombre} x {self.cantidad}"
 class Modelos(models.Model):
-    pass
+    nombre = models.Charfield(max_length=50)
     def __str__(self):
-        pass
+        f"{self.nombre}"
 class Marcas(models.Model):
-    pass
+    nombre = models.Charfield(max_length=50)
     def __str__(self):
-        pass
+        f"{self.nombre}"
 class Categorias(models.Model):
-    pass
+    nombre = models.Charfield(max_length=50)
     def __str__(self):
-        pass
+        f"{self.nombre}"
 class Fotos_Productos(models.Model):
-    pass
+    ruta = models.Charfield(max_length=250)
+    producto = models.ForeignKey(Productos,on_delete=models.CASCADE)
     def __str__(self):
-        pass
+        f"{self.ruta}"
