@@ -14,9 +14,12 @@ class Productos(models.Model):
     def __str__(self):
         f"{self.nombre}"
 class Descuentos(models.Model):
-    pass
+    cantidad = models.IntegerField()
+    fecha_inicio = models.DateField()
+    fecha_fin = models.DateField()
+    producto = models.ForeignKey(Productos,on_delete=models.CASCADE)
     def __str__(self):
-        pass
+        f"{self.producto.nombre} x {self.cantidad}"
 class Mermas(models.Model):
     pass
     def __str__(self):
