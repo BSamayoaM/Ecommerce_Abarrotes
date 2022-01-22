@@ -1,10 +1,11 @@
 from django.db import models
 
-class Clientes(models.Model):
-    pass
-    def __str__(self):
-        pass
+
 class Ventas(models.Model):
-    pass
+    fecha   = models.DateField()
+    subtotal  = models.FloatField()
+    iva  = models.FloatField()
+    total  = models.FloatField()
+    usuario  = models.ForeignKey()
     def __str__(self):
-        pass
+        f"{self.fecha} {self.usuario}"
